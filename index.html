@@ -30,7 +30,6 @@
             text-align: center;
         }
 
-        /* Estilização da Logo por Imagem */
         .logo-container {
             margin-bottom: 50px;
             display: flex;
@@ -39,7 +38,7 @@
         }
 
         .logo-img {
-            max-width: 220px; /* Ajuste o tamanho conforme sua imagem */
+            max-width: 220px;
             height: auto;
             object-fit: contain;
         }
@@ -80,7 +79,6 @@
             font-size: 14px;
         }
 
-        /* Toggle Switch */
         .switch {
             position: relative;
             display: inline-block;
@@ -129,15 +127,12 @@
             text-transform: lowercase;
             cursor: pointer;
             font-size: 16px;
-            text-decoration: none;
-            display: block;
             transition: all 0.3s;
         }
 
         .btn-acessar:hover {
             background-color: #ffffff;
             color: #333;
-            transform: translateY(-1px);
         }
 
         .footer-menu {
@@ -175,14 +170,14 @@
             <img src="https://iconape.com/wp-content/files/hv/208805/svg/208805.svg" alt="Logo" class="logo-img">
         </div>
 
-        <form onsubmit="return false;">
+        <form id="loginForm">
             <div class="input-group">
-                <input type="text" placeholder="digite o cartão ou use a câmera">
+                <input type="text" id="usuario" placeholder="digite o i ou use a câmera">
                 <i class="fa-solid fa-camera"></i>
             </div>
 
             <div class="input-group">
-                <input type="password" placeholder="senha do cartão">
+                <input type="password" id="senha" placeholder="senha do i">
                 <i class="fa-solid fa-lock"></i>
             </div>
 
@@ -194,7 +189,7 @@
                 </label>
             </div>
 
-            <a href="https://www.itau.com.br" class="btn-acessar">acessar</a>
+            <button type="button" onclick="validarLogin()" class="btn-acessar">acessar</button>
         </form>
     </div>
 
@@ -212,6 +207,26 @@
             peça já o seu
         </div>
     </div>
+
+    <script>
+        function validarLogin() {
+            // Defina aqui o login e a senha que quer validar
+            const loginExato = "559802862599365"; 
+            const senhaExata = "9166";
+
+            // Obtém os valores digitados pelo utilizador
+            const campoUsuario = document.getElementById('usuario').value;
+            const campoSenha = document.getElementById('senha').value;
+
+            // Verifica se os campos correspondem aos valores exatos
+            if (campoUsuario === loginExato && campoSenha === senhaExata) {
+                alert("Acesso confirmado!");
+                window.location.href = "https://www.itau.com.br"; // Redireciona se estiver correto
+            } else {
+                alert("Dados incorretos. Por favor, tente novamente.");
+            }
+        }
+    </script>
 
 </body>
 </html>
